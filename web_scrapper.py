@@ -29,7 +29,7 @@ def web_scrapper(url):
 
     for a in html_soup.find_all("a"):
         if a.parent.name == 'td':
-            countries.append(a)
+            countries.append(a)›
 
     countries_l = [i.get_text() for i in countries]
 
