@@ -2,7 +2,7 @@
 
 Travel Bucket List
 
-Build an app to track someone's travel adventures.
+Build an app to track someone's travel adventures. 
 
 MVP:
 
@@ -17,3 +17,6 @@ Have separate pages for destinations visited and those still to visit
 Add sights to the destination cities
 Search for destination by continent, city or country
 Any other ideas you might come up with
+
+
+# App done using Python, Flask, HTML and CSS.
