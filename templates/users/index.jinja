@@ -1,0 +1,89 @@
+{% extends 'base_2.jinja'%}
+
+{% block content %}
+
+<div class="descriptionDiv">
+
+    <!-- Section -->
+    <h2>Your Travel Bucket list {{ user.first_name}}</h2>
+
+    <!-- Portfolio Grid -->
+    <div class="grid">
+        {% for v_city in visited_cities %}
+        <a href="#" class="card">
+            <div class="content">
+                <img src="/static/imgs/image_example.jpg" alt="Card Image" height="390" width="390">
+                <div class="card-body">
+                    <div class="subtitle">{{v_city.city.country.continent.name}}</div>
+                    <div class="subtitle">{{v_city.city.country.name}}</div>
+                    <div class="title">{{v_city.city.name}}</div>
+                    <div class="title">Have you visited it? {{v_city.is_visited}}</div>
+                    <div class="description">{{v_city.notes}}</div>
+                    <form class="form-inline" action="{{ user.id }}/{{ v_city.id }}/delete" method="POST">
+                        <input type="submit" value="Delete">
+                    </form>
+                    <form class="form-inline" action="{{ user.id }}/{{ v_city.id }}/edit" method="">
+                        <input type="submit" value="Edit">
+                    </form>
+                </div>
+            </div>
+        </a>
+
+        {# <div>
+            <div>
+                {{v_city.city.country.continent.name}}
+            </div>
+            <div>
+                {{v_city.city.country.name}}
+            </div>
+            <div>
+                {{v_city.city.name}}
+            </div>
+            <div>
+                {{v_city.is_visited}}
+            </div>
+            <div>
+                {{v_city.notes}}
+            </div>
+            <form class="form-inline" action="{{ user.id }}/{{ v_city.id }}/delete" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+            <form class="form-inline" action="{{ user.id }}/{{ v_city.id }}/edit" method="">
+                <input type="submit" value="Edit">
+            </form>
+        </div> #}
+
+        {% endfor %}
+
+
+
+        {% endblock %}
+    </div>
+</div>
+
+{# {% for v_city in visited_cities %}
+<div>
+    <div>
+        {{v_city.city.country.continent.name}}
+    </div>
+    <div>
+        {{v_city.city.country.name}}
+    </div>
+    <div>
+        {{v_city.city.name}}
+    </div>
+    <div>
+        {{v_city.is_visited}}
+    </div>
+    <div>
+        {{v_city.notes}}
+    </div>
+    <form class="form-inline" action="{{ user.id }}/{{ v_city.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <form class="form-inline" action="{{ user.id }}/{{ v_city.id }}/edit" method="">
+        <input type="submit" value="Edit">
+    </form>
+</div>
+
+{% endfor %} #}

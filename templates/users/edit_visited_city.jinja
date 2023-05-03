@@ -1,0 +1,55 @@
+{% extends 'base_2.jinja'%}
+{% block content %}
+<div class="descriptionDiv">
+    <h2>Add a new user</h2>
+    <div class="form-2">
+        <div class="card-2">
+            <div class="content">
+                <div class="form">
+                    <form action="/users/{{ user.id }}/{{ visited_this_city.id }}" method="POST">
+                        <div class="title-2">
+                            {{visited_this_city.city.country.continent.name}}
+                        </div>
+                        <div class="title-2">
+                            {{visited_this_city.city.country.name}}
+                        </div>
+                        <div class="input-container ic2">
+                            <label class="title-2" for="city">City:</label>
+                            <input type="text" id="city" name="city" value="{{visited_this_city.city.name}}" required
+                                autofocus>
+                        </div>
+
+                        <div class="input-container ic2">
+                            <label class="title-2" for="is_visited">Have you visited this city?</label>
+                            <select id="is_visited" name="is_visited">
+
+                                <option value="true" {% if visited_this_city.is_visited==True %} selected="selected" {%
+                                    endif %}>
+                                    True
+                                </option>
+
+                                <option value="false" {% if visited_this_city.is_visited==False %} selected="selected"
+                                    {% endif %}>
+                                    False
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="input-container ic2">
+                            <label class="title-2" for="notes">Notes:</label>
+                            <input type="text" id="notes" name="notes" value="{{visited_this_city.notes}}" required
+                                autofocus>
+                        </div>
+
+                        <button type="submit">Update city</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

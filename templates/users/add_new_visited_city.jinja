@@ -1,0 +1,92 @@
+{% extends 'base_2.jinja'%}
+
+{% block content %}
+<div class="descriptionDiv">
+    <h2>Add a new travel to your list</h2>
+    <div class="form-2">
+        <div class="card-2">
+            <div class="content">
+            <div class="form">
+                <form action="/users/{{ user.id }}" method="POST">
+                    <div class="input-container ic1">
+                        <label class="title-2" for="countries">Select a country:</label>
+
+                        <select id="countries" name="country_id">
+                            {% for country in countries %}
+                            <option value="{{ country.id }}" {% if country.id==country.id %} selected="selected" {%
+                                endif %}>
+                                {{ country.name }}
+
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="input-container ic2">
+                        <label class="title-2" for="City">Input a city:</label>
+
+                        <input type="text" id="city" name="city" placeholder="city" required autofocus>
+                    </div>
+                    <div class="input-container ic2">
+                        <label class="title-2" for="is_visited">Has been visited?</label>
+
+                        <select id="is_visited" name="is_visited">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div>
+                    <div class="input-container ic2">
+                        <label class="title-2" for="notes">Notes:</label>
+
+                        <input type="text" id="notes" name="notes" placeholder="notes" required autofocus>
+                    </div>
+                    <button type="submit">Add New City</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{# <form action="/tasks/{{task.id}}" method="post">
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{task.description}}" required autofocus>
+    </div>
+
+    <div>
+        <label for="duration">Duration:</label>
+        <input type="number" id="duration" name="duration" value="{{task.duration}}" required>
+    </div>
+
+    <div>
+        <label for="completed">Completed:</label>
+        <select id="completed" name="completed">
+
+            <option value="true" {% if task.completed==True %} selected="selected" {% endif %}>
+                True
+            </option>
+
+            <option value="false" {% if task.completed==False %} selected="selected" {% endif %}>
+                False
+            </option>
+
+        </select>
+    </div>
+
+    <div>
+        <label for="user">User:</label>
+        <select id="user" name="user_id">
+            {% for user in all_users %}
+            <option value="{{ user.id }}" {% if task.user.id==user.id %} selected="selected" {% endif %}>
+                {{ user.first_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Update Task</button>
+
+</form>
+
+{% endblock %} #}

@@ -1,0 +1,30 @@
+{% extends 'base_2.jinja'%}
+
+{% block content %}
+
+<div class="descriptionDiv">
+    <h2>Add a new user</h2>
+    <div class="form-2">
+        <div class="card-2">
+            <div class="content">
+                <div class="form">
+                    <form action="/users/{{ user.id }}/profile" method="POST">
+                        <div class="input-container ic1">
+                            <label class="title-2" for="first_name">First name:</label>
+                            <input type="text" id="first_name" name="first_name" value="{{user.first_name}}"
+                                placeholder="First name" required autofocus>
+                        </div>
+                        <div class="input-container ic2">
+                            <label class="title-2" for="last_name">Last name:</label>
+                            <input type="text" id="last_name" name="last_name" value="{{user.last_name}}"
+                                placeholder="Last name" required autofocus>
+                        </div>
+                        <button type="submit">Update user</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

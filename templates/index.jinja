@@ -1,0 +1,29 @@
+{% extends 'base.jinja'%}
+
+{% block content %}
+
+<div class="descriptionDiv">
+
+    <!-- Section -->
+    <h2>Select your user</h2>
+
+    <!-- Portfolio Grid -->
+    <div class="grid">
+        {% for user in all_users %}
+        <a href="#" class="card">
+            <div class="content">
+                <img src="/static/imgs/profile.jpg" alt="Card Image" height="390" width="390">
+                <div class="card-body">
+                    <div class="title">{{ user.first_name + " " + user.last_name}}</div>
+                    <form class="form-inline" action="/users/{{ user.id }}" method="">
+                        <input type="submit" value="Log in">
+                    </form>
+                </div>
+            </div>
+        </a>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
